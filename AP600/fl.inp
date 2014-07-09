@@ -1,0 +1,99 @@
+AllowReplace
+
+FL_INPUT
+
+!==========================================================
+FL_ID	'f_stm'	101
+FL_FT	'v_stm' 'pipe'	1.5157	1.5157
+FL_GEO	5.067E-4	1.4	1.0	!area from thesis, length assumed
+FL_JSW	13	NOBUBBLERISE	NOBUBBLERISE
+FL_USL	0.	0.	0.	0.
+FL_VEL	3.2386	0.
+FL_JLF	150.30E-2	1.5284
+FL_JLT	150.30E-2	1.5284	
+FL_SEG	1
+		1	5.067E-4	1.4	.0254	
+!==========================================================
+FL_ID	'real_inj'	102
+FL_FT	'pipe' 'v1'	1.5284	1.5284
+FL_GEO	3.385E-4	.009526	1.
+FL_JSW	11	NOBUBBLERISE	NOBUBBLERISE
+FL_USL	1.	0.	0.	0.
+FL_JLF	1.5284	1.5284
+FL_JLT	1.5284	1.5284
+FL_SEG	1	
+		1	3.385E-4	.009526	.004763
+!==========================================================
+FL_ID	'f_drain'	106	!specifics assumed to be the same as f_stm
+FL_FT	'v1'	'drain'	0.	10.
+FL_GEO	5.067E-4	0.1	1.0
+FL_JSW	12	NOBUBBLERISE	NOBUBBLERISE
+FL_USL	0.	0.	0.	0.
+FL_JLF	0.	0.
+FL_JLT	10.0	10.0	
+FL_SEG	1
+		1	5.067E-4	.1	.0254
+!==========================================================
+FL_ID	'f12'	201
+FL_FT	'v1'	'v2'	1.5284	1.5284
+FL_GEO	0.277368	1.2192	1.00
+FL_JSW	0	NOBUBBLERISE	NOBUBBLERISE
+FL_USL	0.	0.	0.	0.
+FL_JLF	1.5284	1.5284
+FL_JLT	1.5284	1.5284
+FL_SEG	1
+		1	.0277368	1.2192	0.0456648
+!==========================================================
+FL_ID	'f23'	301
+FL_FT	'v2'	'v3'	1.9834	1.9834
+FL_GEO	0.277368	0.7		1.00
+FL_JSW	3	NOBUBBLERISE	NOBUBBLERISE
+FL_USL	0.	0.	0.	0.
+FL_JLF	1.5284	2.4384
+FL_JLT	1.5284	2.4384
+FL_SEG	1
+		1	.0277368	0.7		0.0456648
+!==========================================================
+FL_ID	'f31'	401
+FL_FT	'v3'	'v1'	1.5284	1.5284
+FL_GEO	0.149352	1.2192	1.00
+FL_JSW	0	NOBUBBLERISE	NOBUBBLERISE
+FL_USL	0.	0.	0.	0.
+FL_JLF	1.5284	1.5284
+FL_JLT	1.5284	1.5284
+FL_SEG	1
+		1	.149352		1.2192	0.06979567
+!==========================================================
+FL_VTM	2
+		1	'f_stm'		CF	STMSRC
+		2	'f_drain'	CF	DRAIN
+FL_VLV	1
+		1	'drain_vlv'	'f_drain'	NoTrip	VLVCF
+!==========================================================
+
+
+
+CF_INPUT
+
+!==========================================================
+CF_ID	'TEMP_CF'	EQUALS
+CF_ARG	1
+		1	EXEC-TIME	0.0	0.0
+CF_SAI	0.0	301.75
+
+CF_ID	STMSRC	EQUALS
+CF_ARG	1
+		1	EXEC-TIME	0.	0.
+CF_SAI	0.	3.2386
+
+CF_ID	DRAIN EQUALS
+CF_ARG	1
+		1	EXEC-TIME	0.	0.
+CF_SAI	0.	0.0007835	!try using formula with rho and all
+
+CF_ID	VLVCF	T-O-F
+CF_MSC	0.	0.10001
+CF_SAI	1.	0.
+CF_ARG	1
+		1	CVH-LIQLEV('v1')	1.	0.
+!==========================================================

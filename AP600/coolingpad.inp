@@ -1,0 +1,124 @@
+AllowReplace
+
+HS_INPUT
+
+!==========================================================
+HS_ID	'cpad1'	300	!vertical pad on righthand side
+HS_GD	RECTANGULAR	NO
+HS_EOD	1.5284	1.0
+HS_SRC	NO
+HS_ND	2
+		1	1	0.0		295.0	aluminum
+		2	2	3.81E-2	301.15	aluminum
+HS_LB	CalcCoefHS	'v3'	NO
+HS_LBP	EXT	0.05	0.95	!not sure
+HS_LBS	.277368	.91	.91
+HS_RB	TempCF	'TEMP_CF'	'v3'	NO
+HS_RBP	INT	0.05	0.95
+HS_FT	ON
+HS_FTDRN	1
+			1	'tank3'	.65E-2	0.		!how would i know this fraction
+HS_FTLBM	NO
+HS_FTLBE	NO
+HS_FTRBF	0.
+HS_FTRBM	NO
+!==========================================================
+HS_ID	'cpad2'	400	!horizontal pad on the top
+HS_GD	RECTANGULAR	NO
+HS_EOD	2.4384	0.0
+HS_SRC	NO
+HS_ND	2
+		1	1	0.0		295.0	aluminum
+		2	2	3.81E-2	301.75	aluminum
+HS_LB	CalcCoefHS	'v3'	NO
+HS_LBP	EXT	0.05	0.95	!not sure
+HS_LBS	.277368	.91	.91
+HS_RB	TempCF	'TEMP_CF'	'v3'	NO
+HS_RBP	INT	0.05	0.95
+HS_FT	OFF
+!==========================================================
+HS_ID	'tank1'	500	!tank wall on the left of v1
+HS_GD	RECTANGULAR	NO
+HS_EOD	0.	1.
+HS_SRC	NO
+HS_ND	2
+		1	1	0.		295.	aluminum
+		2	2	.00127	295.	aluminum
+HS_LB	Symmetry
+HS_LBP	EXT	.05	.95
+HS_RB	CalcCoefHS	'v1'	NO
+HS_RBP	EXT	.05	.95
+HS_RBS	.465856	.3048	1.5284
+HS_FT	ON
+HS_FTDRN	0
+HS_FTLBM	NO
+HS_FTLBE	NO
+HS_FTRBF	0.
+HS_FTRBM	NO
+!==========================================================
+HS_ID	'tank2'	600	!tank wall on the left of v2
+HS_GD	RECTANGULAR	NO
+HS_EOD	1.5284	1.
+HS_SRC	NO
+HS_ND	2
+		1	1	0.		295.	aluminum
+		2	2	.00127	295.	aluminum
+HS_LB	Symmetry
+HS_LBP	EXT	.05	.95
+HS_RB	CalcCoefHS	'v2'	NO
+HS_RBP	EXT	.05	.95
+HS_RBS	.277368	.3048	.91
+HS_FT	ON
+HS_FTDRN	1
+			1	'tank1'	.65E-2	0.		!how would i know this fraction
+HS_FTLBM	NO
+HS_FTLBE	NO
+HS_FTRBF	0.
+HS_FTRBM	NO
+!==========================================================
+HS_ID	'tank3'	700	!tank wall on the right of v1
+HS_GD	RECTANGULAR	NO
+HS_EOD	0.	1.
+HS_SRC	NO
+HS_ND	2
+		1	1	0.		295.	aluminum
+		2	2	.00127	295.	aluminum
+HS_LB	CalcCoefHS	'v1'	NO
+HS_LBP	EXT	.05	.95
+HS_LBS	.465856	.3048	1.5284
+HS_RB	Symmetry
+HS_RBP	EXT	.05	.95
+HS_FT	ON
+HS_FTDRN	0
+HS_FTLBM	NO
+HS_FTLBE	NO
+HS_FTRBF	0.
+HS_FTRBM	NO
+!==========================================================
+HS_ID	'tank4'	800	!tank wall on the bottom of v1
+HS_GD	RECTANGULAR NO
+HS_EOD	0.	0.
+HS_SRC	NO
+HS_ND	2
+		1	1	0.		295.	aluminum
+		2	2	.00127	295.	aluminum
+HS_LB	Symmetry
+HS_LBP	EXT	.05	.95
+HS_RB	CalcCoefHS	'v1'	NO
+HS_RBP	EXT	.05	.95
+HS_RBS	.42672	.3048	1.4
+HS_FT	OFF
+!==========================================================
+HS_ID	'tank5'	900	!tank wall on the top of v2
+HS_GD	RECTANGULAR NO
+HS_EOD	2.4384	0.
+HS_SRC	NO
+HS_ND	2
+		1	1	0.		295.	aluminum
+		2	2	.00127	295.	aluminum
+HS_LB	CalcCoefHS	'v2'	NO
+HS_LBP	EXT	.05	.95
+HS_LBS	.149352	.49	.3048
+HS_RB	Symmetry
+HS_RBP	EXT	.05	.95
+HS_FT	OFF
