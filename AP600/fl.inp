@@ -92,7 +92,7 @@ CF_ARG	1
 CF_SAI	0.	0.0007835	!try using formula with rho and all
 
 CF_ID	VLVCF	T-O-F
-CF_MSC	0.	0.10001
+CF_MSC	0.	0.101
 CF_SAI	1.	0.
 CF_ARG	1
 		1	CVH-LIQLEV('v1')	1.	0.
